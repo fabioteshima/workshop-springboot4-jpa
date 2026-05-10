@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.educandoweb.course.entities.pk.OrderItemPK;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -11,6 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_order_item")
+@JsonPropertyOrder({ "quantity", "price", "product" })
 public class OrderItem implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -94,7 +96,4 @@ public class OrderItem implements Serializable {
 			return false;
 		return true;
 	}
-
-	
-
 }
