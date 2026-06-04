@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_order_item")
-@JsonPropertyOrder({ "quantity", "price", "product" })
+@JsonPropertyOrder({ "quantity", "price", "subTotal", "product" })
 public class OrderItem implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -64,6 +64,10 @@ public class OrderItem implements Serializable {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	
+	public Double getSubTotal() {
+		return quantity * price;
 	}
 
 	@Override
